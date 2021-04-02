@@ -33,20 +33,72 @@ namespace ConsoleUI
 
             // Create a list of Vehicle called vehicles
 
+            var vechiles = new List<Vehicle>();
+
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * - new it up as one of each derived class
              * Set the properties with object initializer syntax
              */
 
+            Car c1 = new Car()
+            {
+                Year = "1990",
+                Make = "Ford",
+                Model = "Thunder Bird Super Coup",
+                Rims = "alloy"
+            };
+
+
+            MotorCycle bike1 = new MotorCycle()
+            {
+                Year = "2005",
+                Make = "Harley Davidson",
+                Model = "Fat Boy",
+                HandleBars = "Big Boy",
+            };
+
+            Vehicle jeep = new Car()
+            {
+                Year = "2021",
+                Make = "Jeep",
+                Model = "Wrangler",
+            };
+
+            Vehicle suzuki = new MotorCycle()
+            {
+                Year = "2015",
+                Make = "Suzuki",
+                Model = "C900"
+            };
+
+
             /*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
 
-            // Call each of the drive methods for one car and one motorcycle
+            vechiles.Add(c1);
+            vechiles.Add(bike1);
+            vechiles.Add(jeep);
+            vechiles.Add(suzuki);
 
-            #endregion            
+            foreach (var vehicle in vechiles)
+            {
+                Console.WriteLine($"Year: {vehicle.Year}\n" +
+                                  $"Make: {vehicle.Make}\n" +
+                                  $"Model: {vehicle.Model}");
+
+                Console.WriteLine("");
+                
+            }
+
+
+            // Call each of the drive methods for one car and one motorcycle
+            c1.DriveAbstract();
+            suzuki.DriveVirtual();
+
+            #endregion
             Console.ReadLine();
         }
     }
